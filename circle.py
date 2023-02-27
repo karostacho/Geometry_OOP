@@ -5,7 +5,7 @@ class Circle(Shape):
     def __init__(self, r):
         Shape.check_if_args_greater_than_zero([r])
         self.name = "circle"
-        self.r = float(r)
+        self.r = r
         self.perimeter_formula = "2*\u03C0 * r"
         self.area_formula = "\u03C0 * r2"
 
@@ -21,3 +21,5 @@ class Circle(Shape):
     def get_perimeter_formula(self):
         return self.perimeter_formula
 
+    def __str__(self):
+        return (f"{self.name} (radius length: r = {self.r}) ")

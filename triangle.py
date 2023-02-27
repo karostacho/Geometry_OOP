@@ -3,10 +3,10 @@ import math
 
 class Triangle(Shape):
     def __init__(self, a, b, c):
+        Shape.check_if_args_greater_than_zero([a, b, c])
         self.a = a
         self.b = b
         self.c = c
-        Shape.check_if_args_greater_than_zero([self.a,self.b,self.c])
         self.name = "triangle"
         self.perimeter_formula = "a+b+c"
         self.area_formula = "√(s(s-a)(s-b)(s-c))"
@@ -24,11 +24,14 @@ class Triangle(Shape):
     def get_perimeter_formula(self):
         return self.perimeter_formula
 
+    def __str__(self):
+        return (f"{self.name} (side lengths: a = {self.a}, b = {self.b}, c = {self.c})")
 
 class EquilateralTriangle(Triangle):
     def __init__(self,a):
         super().__init__(a,a,a)
-        self.perimeter_formula = "a*3"
+        self.perimeter_formula = "3a"
         self.area_formula = "√s(s-a)**3)"
 
-
+    def __str__(self):
+        return (f"{self.name} (side length: a = {self.a})")

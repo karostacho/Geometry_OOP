@@ -17,6 +17,10 @@ class Shape(ABC):
     def get_perimeter_formula(self):
         pass
 
+    @abstractmethod
+    def __str__(self):
+        pass
+
     @staticmethod
     def check_if_args_greater_than_zero(args):
         if all(arg > 0 for arg in args):

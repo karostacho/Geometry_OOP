@@ -3,11 +3,11 @@ import math
 
 class RegularPentagon(Shape):
     def __init__(self, a):
+        Shape.check_if_args_greater_than_zero([a])
         self.a = a
-        Shape.check_if_args_greater_than_zero([self.a])
         self.name = "regular pentagon"
         self.perimeter_formula = "5a"
-        self.area_formula = "1/4(√5(5+2√5)s2)"
+        self.area_formula = "1/4(√(5(5+2√5))s2)"
 
     def calculate_area(self):
         return self.a * 5
@@ -20,3 +20,6 @@ class RegularPentagon(Shape):
 
     def get_perimeter_formula(self):
         return self.perimeter_formula
+    
+    def __str__(self):
+        return (f"{self.name} (side length: a = {self.a})")
