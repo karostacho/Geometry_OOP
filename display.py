@@ -7,19 +7,22 @@ from regular_pentagon import RegularPentagon
 
 shape_list = ShapeList()
 def display_menu():
-    user_input = int(input("Learn Geometry.\n  What do you want to do?\n  (1) Add new shape\n  (2) Show all shapes\n  (3) Show shape with the largest perimeter\n  (4) Show shape with the largest area\n  (5) Show formulas\n  (0) Exit program\n"))
+    user_input = input("Learn Geometry.\n  What do you want to do?\n  (1) Add new shape\n  (2) Show all shapes\n  (3) Show shape with the largest perimeter\n  (4) Show shape with the largest area\n  (5) Show formulas\n  (0) Exit program\n")
     if user_input == 0:
         quit()
-    if user_input == 1:
+    elif user_input == 1:
         add_new_shape()
-    if user_input == 2:
+    elif user_input == 2:
         print(shape_list)
-    if user_input == 3:
+    elif user_input == 3:
         shape_list.get_largest_shape_by_perimeter()
-    if user_input == 4:
+    elif user_input == 4:
         shape_list.get_largest_shape_by_area()
-    if user_input == 5:   
+    elif user_input == 5:   
         show_formulas()
+    else:
+        print("\nPlease select a number 0-5\n")
+        return display_menu()
 
 def add_new_shape():
     shape_type = input("What shape would you like to add? ")
@@ -49,6 +52,9 @@ def add_new_shape():
     if shape_type == "regular pentagon":
         side = float(input("Please enter the side length of the pentagon: "))
         shape = RegularPentagon(side)
+    else:
+        print("Invalid shape name")
+        return add_new_shape()
     shape_list.add_shape(shape)
     print(f"{shape} has been added to the list")
 
@@ -78,6 +84,7 @@ def show_formulas():
 
     else:
         print("Invalid shape name")
+        return show_formulas()
     
 
 shape_list.add_shape(Triangle(3, 4, 5))
