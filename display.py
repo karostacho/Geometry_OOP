@@ -58,10 +58,6 @@ def add_new_shape():
     shape_list.add_shape(shape)
     print(f"{shape} has been added to the list")
 
-
-
-
-
 def show_formulas():
     shape = input("Formula of which shape would you like to see? ")
     if shape == "circle":
@@ -85,7 +81,6 @@ def show_formulas():
     else:
         print("Invalid shape name")
         return show_formulas()
-    
 
 shape_list.add_shape(Triangle(3, 4, 5))
 shape_list.add_shape(Rectangle(2, 4))
