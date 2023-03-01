@@ -19,7 +19,7 @@ def display_menu():
     if user_input == 4:
         shape_list.get_largest_shape_by_area()
     if user_input == 5:   
-        show_formula()
+        show_formulas()
 
 def add_new_shape():
     shape_type = input("What shape would you like to add? ")
@@ -53,25 +53,34 @@ def add_new_shape():
     print(f"{shape} has been added to the list")
 
 
-def show_formula():
-    shape_type = input("Formula of which shape you would like to see? ")
-    if shape_type == "circle":
-        print (Circle.get_perimeter_formula())
 
-    if shape_type == "triangle":
-        print (Triangle.get_perimeter_formula())
 
-    if shape_type == "equilateral triangle":
-        print (EquilateralTriangle.get_perimeter_formula())
 
-    if shape_type == "rectangle":
-        print (Rectangle.get_perimeter_formula())
+def show_formulas():
+    shape = input("Formula of which shape would you like to see? ")
+    if shape == "circle":
+        print(f"perimeter formula: {Circle(1).get_perimeter_formula()}\narea formula: {Circle(1).get_area_formula()}")
+
+    elif shape == "triangle":
+        print(f"perimeter formula: {Triangle(1,2,3).get_perimeter_formula()}\narea formula: {Triangle(1,2,3).get_area_formula()}")
+
+    elif shape == "equilateral triangle":
+        print(f"perimeter formula: {EquilateralTriangle(1,2,3).get_perimeter_formula()}\narea formula: {EquilateralTriangle(1,2,3).get_area_formula()}")
+
+    elif shape == "rectangle":
+        print(f"perimeter formula: {Rectangle(1,2).get_perimeter_formula()}\narea formula: {Rectangle(1,2).get_area_formula()}")
+
+    elif shape == "square":
+        print(f"perimeter formula: {Square(1).get_perimeter_formula()}\narea formula: {Square(1).get_area_formula()}")
+
+    elif shape == "regular pentagon":
+        print(f"perimeter formula: {RegularPentagon(1).get_perimeter_formula()}\narea formula: {RegularPentagon(1).get_area_formula()}")
+
+    else:
+        print("Invalid shape name")
     
-    if shape_type == "square":
-        print (Square.get_perimeter_formula())
 
-    if shape_type == "regular pentagon":
-        print (RegularPentagon.get_perimeter_formula())
-    
-
+shape_list.add_shape(Triangle(3, 4, 5))
+shape_list.add_shape(Rectangle(2, 4))
+shape_list.add_shape(Circle(5))
 display_menu()

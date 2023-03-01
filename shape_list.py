@@ -39,21 +39,3 @@ class ShapeList():
     def __str__(self):
         return f"{self.shapes}"
 
-
-triangle1 = Triangle(3, 4, 5)
-triangle2 = EquilateralTriangle(6)
-rectangle = Rectangle(4, 5)
-square = Square(4)
-circle = Circle(2)
-pentagon = RegularPentagon(5)
-
-shape_list = ShapeList()
-shape_list.add_shape(triangle1)
-shape_list.add_shape(triangle2)
-shape_list.add_shape(rectangle)
-shape_list.add_shape(square)
-shape_list.add_shape(circle)
-shape_list.add_shape(pentagon)
-
-shape_list.get_largest_shape_by_area()
-
