@@ -8,6 +8,13 @@ from regular_pentagon import RegularPentagon
 shape_list = ShapeList()
 def display_menu():
     user_input = input("Learn Geometry.\n  What do you want to do?\n  (1) Add new shape\n  (2) Show all shapes\n  (3) Show shape with the largest perimeter\n  (4) Show shape with the largest area\n  (5) Show formulas\n  (0) Exit program\n")
+    if not user_input.isdigit():
+        print("\nPlease select a number 0-5\n")
+        return display_menu()
+    user_input = int(user_input)
+    if user_input not in range(6):
+        print("\nPlease select a number 0-5\n")
+        return display_menu()
     if user_input == 0:
         quit()
     elif user_input == 1:
