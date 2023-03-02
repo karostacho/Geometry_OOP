@@ -6,8 +6,8 @@ class Circle(Shape):
         Shape.check_if_args_greater_than_zero([r])
         self.name = "circle"
         self.r = r
-        self.perimeter_formula = "2*\u03C0 * r"
-        self.area_formula = "\u03C0 * r2"
+        self.perimeter_formula = "2\u03C0r"
+        self.area_formula = "\u03C0r2"
 
     def calculate_area(self):
         return math.pi * self.r**2

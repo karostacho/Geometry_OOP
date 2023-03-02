@@ -1,8 +1,4 @@
 from shape import Shape
-from triangle import Triangle, EquilateralTriangle
-from rectangle import Rectangle, Square
-from circle import Circle
-from regular_pentagon import RegularPentagon
 
 class ShapeList():
     def __init__(self):
@@ -13,6 +9,10 @@ class ShapeList():
             self.shapes.append(shape)
         else:
             raise TypeError("The object is not a shape")
+        
+    def show_all_shapes(self):
+        for shape in self.shapes:
+            print(shape)
     
     def get_shape_at(self, shape_index):
         shape = self.shapes[shape_index]
@@ -38,4 +38,3 @@ class ShapeList():
 
     def __str__(self):
         return f"{self.shapes}"
-

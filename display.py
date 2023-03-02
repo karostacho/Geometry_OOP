@@ -1,5 +1,4 @@
 from shape_list import ShapeList
-from shape import Shape
 from triangle import Triangle, EquilateralTriangle
 from rectangle import Rectangle, Square
 from circle import Circle
@@ -13,22 +12,27 @@ def display_menu():
         return display_menu()
     user_input = int(user_input)
     if user_input not in range(6):
-        print("\nPlease select a number 0-5\n")
+        print("\nInvalid selection. Please select a number 0-5\n")
         return display_menu()
-    if user_input == 0:
+    elif user_input == 0:
         quit()
     elif user_input == 1:
         add_new_shape()
+        display_menu()
     elif user_input == 2:
-        print(shape_list)
+        shape_list.show_all_shapes()
+        return display_menu()
     elif user_input == 3:
         shape_list.get_largest_shape_by_perimeter()
+        return display_menu()
     elif user_input == 4:
         shape_list.get_largest_shape_by_area()
+        return display_menu()
     elif user_input == 5:   
         show_formulas()
+        return display_menu()
     else:
-        print("\nPlease select a number 0-5\n")
+        print("\nInvalid selection. Please select a number 0-5\n")
         return display_menu()
 
 def add_new_shape():
@@ -37,28 +41,28 @@ def add_new_shape():
         r = float(input("Please enter the radius of the circle: "))
         shape = Circle(r)
 
-    if shape_type == "triangle":
+    elif shape_type == "triangle":
         a = float(input("Please enter the length of side a: "))
         b = float(input("Please enter the length of side b: "))
         c = float(input("Please enter the length of side c: "))
         shape = Triangle(a, b, c)
 
-    if shape_type == "equilateral triangle":
+    elif shape_type == "equilateral triangle":
         a = float(input("Please enter the side length of the triangle: "))
         shape = EquilateralTriangle(a)
 
-    if shape_type == "rectangle":
+    elif shape_type == "rectangle":
         a = float(input("Please enter the width of the rectangle: "))
         b = float(input("Please enter the height of the rectangle: "))
-        shape = Rectangle(a)
+        shape = Rectangle(a,b)
 
-    if shape_type == "square":
-        side = float(input("Please enter the side length of the square: "))
-        shape = Square(side)
+    elif shape_type == "square":
+        a = float(input("Please enter the side length of the square: "))
+        shape = Square(a)
     
-    if shape_type == "regular pentagon":
-        side = float(input("Please enter the side length of the pentagon: "))
-        shape = RegularPentagon(side)
+    elif shape_type == "regular pentagon":
+        a = float(input("Please enter the side length of the pentagon: "))
+        shape = RegularPentagon(a)
     else:
         print("Invalid shape name")
         return add_new_shape()
@@ -68,28 +72,31 @@ def add_new_shape():
 def show_formulas():
     shape = input("Formula of which shape would you like to see? ")
     if shape == "circle":
-        print(f"perimeter formula: {Circle(1).get_perimeter_formula()}\narea formula: {Circle(1).get_area_formula()}")
+        circle = Circle(1)
+        print(f"perimeter formula: {circle.get_perimeter_formula()}\narea formula: {circle.get_area_formula()}")
 
     elif shape == "triangle":
-        print(f"perimeter formula: {Triangle(1,2,3).get_perimeter_formula()}\narea formula: {Triangle(1,2,3).get_area_formula()}")
+        triangle = Triangle(1,2,3)
+        print(f"perimeter formula: {triangle.get_perimeter_formula()}\narea formula: {triangle.get_area_formula()}")
 
     elif shape == "equilateral triangle":
-        print(f"perimeter formula: {EquilateralTriangle(1,2,3).get_perimeter_formula()}\narea formula: {EquilateralTriangle(1,2,3).get_area_formula()}")
+        equilateral_triangle = EquilateralTriangle(1)
+        print(f"perimeter formula: {equilateral_triangle.get_perimeter_formula()}\narea formula: {equilateral_triangle.get_area_formula()}")
 
     elif shape == "rectangle":
-        print(f"perimeter formula: {Rectangle(1,2).get_perimeter_formula()}\narea formula: {Rectangle(1,2).get_area_formula()}")
+        rectangle = Rectangle(1,2)
+        print(f"perimeter formula: {rectangle.get_perimeter_formula()}\narea formula: {rectangle.get_area_formula()}")
 
     elif shape == "square":
-        print(f"perimeter formula: {Square(1).get_perimeter_formula()}\narea formula: {Square(1).get_area_formula()}")
+        square = Square(1)
+        print(f"perimeter formula: {square.get_perimeter_formula()}\narea formula: {square.get_area_formula()}")
 
     elif shape == "regular pentagon":
-        print(f"perimeter formula: {RegularPentagon(1).get_perimeter_formula()}\narea formula: {RegularPentagon(1).get_area_formula()}")
+        regular_pentagon = RegularPentagon(1)
+        print(f"perimeter formula: {regular_pentagon.get_perimeter_formula()}\narea formula: {regular_pentagon.get_area_formula()}")
 
     else:
         print("Invalid shape name")
         return show_formulas()
 
-shape_list.add_shape(Triangle(3, 4, 5))
-shape_list.add_shape(Rectangle(2, 4))
-shape_list.add_shape(Circle(5))
-display_menu()
+
