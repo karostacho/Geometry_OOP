@@ -4,38 +4,14 @@ from rectangle import Rectangle, Square
 from circle import Circle
 from regular_pentagon import RegularPentagon
 
-shape_list = ShapeList()
 def display_menu():
     user_input = input("Learn Geometry.\n  What do you want to do?\n  (1) Add new shape\n  (2) Show all shapes\n  (3) Show shape with the largest perimeter\n  (4) Show shape with the largest area\n  (5) Show formulas\n  (0) Exit program\n")
-    if not user_input.isdigit():
-        print("\nPlease select a number 0-5\n")
-        return display_menu()
-    user_input = int(user_input)
-    if user_input not in range(6):
-        print("\nInvalid selection. Please select a number 0-5\n")
-        return display_menu()
-    elif user_input == 0:
-        quit()
-    elif user_input == 1:
-        add_new_shape()
-        display_menu()
-    elif user_input == 2:
-        shape_list.show_all_shapes()
-        return display_menu()
-    elif user_input == 3:
-        shape_list.get_largest_shape_by_perimeter()
-        return display_menu()
-    elif user_input == 4:
-        shape_list.get_largest_shape_by_area()
-        return display_menu()
-    elif user_input == 5:   
-        show_formulas()
-        return display_menu()
-    else:
-        print("\nInvalid selection. Please select a number 0-5\n")
-        return display_menu()
+    return user_input
 
-def add_new_shape():
+def inform_the_selection_is_invalid():
+    print("\nInvalid selection. Please select a number 0-5\n")
+
+def choose_shape_type_to_add():
     shape_type = input("What shape would you like to add? ")
     if shape_type == "circle":
         r = float(input("Please enter the radius of the circle: "))
@@ -65,10 +41,11 @@ def add_new_shape():
         shape = RegularPentagon(a)
     else:
         print("Invalid shape name")
-        return add_new_shape()
-    shape_list.add_shape(shape)
+        return choose_shape_type_to_add()
     print(f"{shape} has been added to the list")
-
+    return shape
+    
+ 
 def show_formulas():
     shape = input("Formula of which shape would you like to see? ")
     if shape == "circle":
@@ -98,5 +75,3 @@ def show_formulas():
     else:
         print("Invalid shape name")
         return show_formulas()
-
-
