@@ -1,8 +1,8 @@
-from shape_list import ShapeList
 from triangle import Triangle, EquilateralTriangle
 from rectangle import Rectangle, Square
 from circle import Circle
 from regular_pentagon import RegularPentagon
+from rhombus import Rhombus
 
 def display_menu():
     user_input = input("Learn Geometry.\n  What do you want to do?\n  (1) Add new shape\n  (2) Show all shapes\n  (3) Show shape with the largest perimeter\n  (4) Show shape with the largest area\n  (5) Show formulas\n  (0) Exit program\n")
@@ -39,6 +39,13 @@ def choose_shape_type_to_add():
     elif shape_type == "regular pentagon":
         a = float(input("Please enter the side length of the pentagon: "))
         shape = RegularPentagon(a)
+
+    elif shape_type == "rhombus":
+        a = float(input("Please enter the side length of the rhombus: "))
+        d1 = float(input("Please enter the first diagonal length: "))
+        d2 = float(input("Please enter the second diagonal length: "))
+        shape = Rhombus(a,d1,d2)
+
     else:
         print("Invalid shape name")
         return choose_shape_type_to_add()
@@ -50,28 +57,35 @@ def show_formulas():
     shape = input("Formula of which shape would you like to see? ")
     if shape == "circle":
         circle = Circle(1)
-        print(f"perimeter formula: {circle.get_perimeter_formula()}\narea formula: {circle.get_area_formula()}")
+        print_perimeter_and_area_formula(circle)
 
     elif shape == "triangle":
         triangle = Triangle(1,2,3)
-        print(f"perimeter formula: {triangle.get_perimeter_formula()}\narea formula: {triangle.get_area_formula()}")
+        print_perimeter_and_area_formula(triangle)
 
     elif shape == "equilateral triangle":
         equilateral_triangle = EquilateralTriangle(1)
-        print(f"perimeter formula: {equilateral_triangle.get_perimeter_formula()}\narea formula: {equilateral_triangle.get_area_formula()}")
+        print_perimeter_and_area_formula(equilateral_triangle)
 
     elif shape == "rectangle":
         rectangle = Rectangle(1,2)
-        print(f"perimeter formula: {rectangle.get_perimeter_formula()}\narea formula: {rectangle.get_area_formula()}")
+        print_perimeter_and_area_formula(rectangle)
 
     elif shape == "square":
         square = Square(1)
-        print(f"perimeter formula: {square.get_perimeter_formula()}\narea formula: {square.get_area_formula()}")
+        print_perimeter_and_area_formula(square)
 
     elif shape == "regular pentagon":
         regular_pentagon = RegularPentagon(1)
-        print(f"perimeter formula: {regular_pentagon.get_perimeter_formula()}\narea formula: {regular_pentagon.get_area_formula()}")
+        print_perimeter_and_area_formula(regular_pentagon)
+
+    elif shape == "rhombus":
+        rhombus = Rhombus(1,2,3)
+        print_perimeter_and_area_formula(rhombus)
 
     else:
         print("Invalid shape name")
         return show_formulas()
+
+def print_perimeter_and_area_formula(shape):
+    print ((f"perimeter formula: {shape.get_perimeter_formula()}\narea formula: {shape.get_area_formula()}"))
