@@ -2,7 +2,7 @@ from shape import Shape
 
 class Rectangle(Shape):
     def __init__(self, a, b):
-        Shape.check_if_args_greater_than_zero([a, b])
+        Shape.are_all_args_greater_than_zero([a, b])
         self.a = a
         self.b = b
         self.name = "rectangle"

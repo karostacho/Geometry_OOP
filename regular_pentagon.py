@@ -3,7 +3,7 @@ import math
 
 class RegularPentagon(Shape):
     def __init__(self, a):
-        Shape.check_if_args_greater_than_zero([a])
+        Shape.are_all_args_greater_than_zero([a])
         self.a = a
         self.name = "regular pentagon"
         self.perimeter_formula = "5a"

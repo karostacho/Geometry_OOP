@@ -22,7 +22,7 @@ class Shape(ABC):
         pass
 
     @staticmethod
-    def check_if_args_greater_than_zero(args):
+    def are_all_args_greater_than_zero(args):
         if all(arg > 0 for arg in args):
             return True
         else:

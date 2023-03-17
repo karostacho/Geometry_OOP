@@ -2,7 +2,7 @@ from shape import Shape
 
 class Rhombus(Shape):
     def __init__(self, a, d1, d2):
-        Shape.check_if_args_greater_than_zero([a, d1, d2])
+        Shape.are_all_args_greater_than_zero([a, d1, d2])
         self.a = a
         self.d1 = d1
         self.d2 = d2

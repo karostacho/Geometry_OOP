@@ -18,7 +18,7 @@ class Program:
         if user_input == 0:
             quit()
         if user_input == 1:
-            shape = self.displayer.choose_shape_type_to_add()
+            shape = self.shape_list.create_shape()
             self.shape_list.add_shape(shape)
             return self.run() 
         if user_input == 2:

@@ -3,7 +3,7 @@ import math
 
 class Circle(Shape):
     def __init__(self, r):
-        Shape.check_if_args_greater_than_zero([r])
+        Shape.are_all_args_greater_than_zero([r])
         self.name = "circle"
         self.r = r
         self.perimeter_formula = "2\u03C0r"
