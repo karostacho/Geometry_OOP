@@ -7,7 +7,7 @@ class RegularPentagon(Shape):
         self.a = a
         self.name = "regular pentagon"
         self.perimeter_formula = "5a"
-        self.area_formula = "1/4(√(5(5+2√5))s2)"
+        self.area_formula = "1/4(√(5(5+2√5))s^2)"
 
     def calculate_area(self):
         return self.a * 5

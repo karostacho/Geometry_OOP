@@ -29,7 +29,7 @@ class Square(Rectangle):
         super().__init__(a, a)
         self.name = "square"
         self.perimeter_formula = "4a"
-        self.area_formula = "a2"
+        self.area_formula = "a^2"
 
     def __str__(self):
         return (f"{self.name} (side length: a = {self.a})")
